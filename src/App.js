@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { ReactTrixRTEInput, ReactTrixRTEToolbar } from "react-trix-rte";
-import { ItemDirective, ItemsDirective, ToolbarComponent } from '@syncfusion/ej2-react-navigations';
+import React, { useState, useRef } from "react";
+// import { ReactToolbarResult, ReactToolbar } from "react-trix-rte";
+import { ReactToolbarResult, ReactToolbar } from "components/react-toolbar";
+import Panel from "components/common/Panel";
+// import { ItemDirective, ItemsDirective, ToolbarComponent } from '@syncfusion/ej2-react-navigations';
 
 import './App.css';
 
 function App() {
 
+  // const reactResultRef = useRef();
 
   const [value, setValue] = useState("");
   function handleChange(event, newValue) {
@@ -14,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <ToolbarComponent id='toolbar'>
+      {/* <ToolbarComponent id='toolbar'>
         <ItemsDirective>
           <ItemDirective text="Cut" />
           <ItemDirective text="Copy" />
@@ -24,16 +27,18 @@ function App() {
           <ItemDirective text="Italic" />
           <ItemDirective text="Underline" />
         </ItemsDirective>
-      </ToolbarComponent>      
+      </ToolbarComponent>       */}
 
 
     <>
-      <ReactTrixRTEToolbar toolbarId="react-trix-rte-editor" />
-      <ReactTrixRTEInput
+      <ReactToolbar toolbarId="react-trix-rte-editor" />
+      <ReactToolbarResult
         toolbarId="react-trix-rte-editor"
         defaultValue="<div>React Trix Rich Text Editor</div>"
         onChange={handleChange}
       />
+        {/* <Panel/>
+      </ReactToolbarResult> */}
     </>
     </div>
   );
