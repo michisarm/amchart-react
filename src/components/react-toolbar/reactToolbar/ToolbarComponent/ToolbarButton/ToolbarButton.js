@@ -5,13 +5,12 @@ import { TOOLBAR_LANGUAGE_OPTS } from "../../constants";
 
 function ToolbarButton(props) {
   const { type, classNames, data, tabIndex, languageKey } = props;
-
   let dataAttributeOptions = {};
   if(data) {
     const { trixAttribute, trixKey, trixAction } = data;
-    if(trixAttribute) dataAttributeOptions["data-trix-attribute"] = trixAttribute;
-    if(trixAction) dataAttributeOptions["data-trix-action"] = trixAction;
-    if(trixAttribute) dataAttributeOptions["data-trix-key"] = trixKey;
+    if(trixAttribute) dataAttributeOptions["data-chart-attribute"] = trixAttribute;
+    if(trixAction) dataAttributeOptions["data-chart-action"] = trixAction;
+    if(trixAttribute) dataAttributeOptions["data-chart-key"] = trixKey;
   }
 
   return (

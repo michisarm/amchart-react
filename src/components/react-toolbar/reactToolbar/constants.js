@@ -1,7 +1,7 @@
 export const TOOLBAR_ACTION_OPTS = {
   bold: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-bold",
+    classNames: "chart-button chart-button--icon chart-button--icon-bold",
     languageKey: "bold",
     tabIndex: "-1",
     trixButtonGroup: "text-tools",
@@ -12,7 +12,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   italic: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-italic",
+    classNames: "chart-button chart-button--icon chart-button--icon-italic",
     languageKey: "italic",
     tabIndex: "-1",
     trixButtonGroup: "text-tools",
@@ -23,7 +23,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   strike: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-strike",
+    classNames: "chart-button chart-button--icon chart-button--icon-strike",
     languageKey: "strike",
     tabIndex: "-1",
     trixButtonGroup: "text-tools",
@@ -33,7 +33,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   link: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-link",
+    classNames: "chart-button chart-button--icon chart-button--icon-link",
     languageKey: "link",
     tabIndex: "-1",
     trixButtonGroup: "text-tools",
@@ -45,7 +45,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   heading1: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-heading-1",
+    classNames: "chart-button chart-button--icon chart-button--icon-heading-1",
     languageKey: "heading1",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -55,7 +55,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   quote: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-quote",
+    classNames: "chart-button chart-button--icon chart-button--icon-quote",
     languageKey: "quote",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -65,7 +65,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   code: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-code",
+    classNames: "chart-button chart-button--icon chart-button--icon-code",
     languageKey: "code",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -75,7 +75,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   bullet: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-bullet-list",
+    classNames: "chart-button chart-button--icon chart-button--icon-bullet-list",
     languageKey: "bullets",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -85,7 +85,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   number: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-number-list",
+    classNames: "chart-button chart-button--icon chart-button--icon-number-list",
     languageKey: "numbers",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -95,7 +95,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   outdent: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-decrease-nesting-level",
+    classNames: "chart-button chart-button--icon chart-button--icon-decrease-nesting-level",
     languageKey: "outdent",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -105,7 +105,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   indent: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-increase-nesting-level",
+    classNames: "chart-button chart-button--icon chart-button--icon-increase-nesting-level",
     languageKey: "indent",
     tabIndex: "-1",
     trixButtonGroup: "block-tools",
@@ -115,7 +115,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   attachFiles: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-attach",
+    classNames: "chart-button chart-button--icon chart-button--icon-attach",
     languageKey: "attachFiles",
     tabIndex: "-1",
     trixButtonGroup: "file-tools",
@@ -125,7 +125,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   undo: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-undo",
+    classNames: "chart-button chart-button--icon chart-button--icon-undo",
     languageKey: "undo",
     tabIndex: "-1",
     trixButtonGroup: "history-tools",
@@ -136,7 +136,7 @@ export const TOOLBAR_ACTION_OPTS = {
   },
   redo: {
     type: "button",
-    classNames: "trix-button trix-button--icon trix-button--icon-redo",
+    classNames: "chart-button chart-button--icon chart-button--icon-redo",
     languageKey: "redo",
     tabIndex: "-1",
     trixButtonGroup: "history-tools",
@@ -177,10 +177,10 @@ export const TOOLBAR_LANGUAGE_OPTS = {
 };
 
 export const TOOLBAR_ACTION_GROUP_OPTS = {
-  "text-tools": "trix-button-group trix-button-group--text-tools",
-  "block-tools": "trix-button-group trix-button-group--block-tools",
-  "file-tools": "trix-button-group trix-button-group--file-tools",
-  "history-tools": "trix-button-group trix-button-group--history-tools"
+  "text-tools": "chart-button-group chart-button-group--text-tools",
+  "block-tools": "chart-button-group chart-button-group--block-tools",
+  "file-tools": "chart-button-group chart-button-group--file-tools",
+  "history-tools": "chart-button-group chart-button-group--history-tools"
 };
 
 export const SPACER_BEFORE_TOOL_GROUP = "history-tools";

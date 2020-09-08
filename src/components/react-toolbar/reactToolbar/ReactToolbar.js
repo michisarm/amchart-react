@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import ToolbarButton from "./ToolbarComponent/ToolbarButton";
 import ToolbarSpacer from "./ToolbarComponent/ToolbarSpacer";
-import ToolbarLinkDialog from "./ToolbarComponent/ToolbarLinkDialog";
+// import ToolbarLinkDialog from "./ToolbarComponent/ToolbarLinkDialog";
 import ToolbarButtonGroup from "./ToolbarComponent/ToolbarButtonGroup";
 import { groupBy, mapIndexed } from "../Shared/utils";
 import { TOOLBAR_ACTION_OPTS, SPACER_BEFORE_TOOL_GROUP } from "./constants";
@@ -48,7 +48,7 @@ function ReactToolbar(props) {
   function renderToolbarActions() {
     if(disableGroupingAction) {
       return(
-        <span className="trix-button-group">
+        <span className="chart-button-group">
           {renderUnGroupedToolbarActions()}
         </span>
       );
@@ -57,21 +57,12 @@ function ReactToolbar(props) {
     }
   }
 
-  function renderToolbarLinkDialog() {
-    if (isToolbarActionPresent && R.includes("link", toolbarActions)) {
-      return <ToolbarLinkDialog />;
-    } else if(!isToolbarActionPresent) {
-      return <ToolbarLinkDialog />;
-    }
-  }
-
   return (
-    <trix-toolbar id={toolbarId}>
-      <div className="trix-button-row">
+    <chart-toolbar id={toolbarId}>
+      <div className="chart-button-row">
         {renderToolbarActions()}
       </div>
-      {renderToolbarLinkDialog()}
-    </trix-toolbar>
+    </chart-toolbar>
   );
 }
 

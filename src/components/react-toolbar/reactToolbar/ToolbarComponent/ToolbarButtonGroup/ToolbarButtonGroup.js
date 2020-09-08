@@ -18,7 +18,7 @@ function ToolbarButtonGroup(props) {
   }
 
   return (
-    <span className={TOOLBAR_ACTION_GROUP_OPTS[groupName]} data-trix-button-group={groupName}>
+    <span className={TOOLBAR_ACTION_GROUP_OPTS[groupName]} data-chart-button-group={groupName}>
       {renderToolbarActions()}
     </span>
   )
