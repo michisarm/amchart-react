@@ -1,6 +1,4 @@
 import React, { useState, useRef } from "react";
-// import { ReactToolbarResult, ReactToolbar } from "react-chart-rte";
-import { ReactToolbarResult, ReactToolbar } from "components/react-toolbar";
 import { Toolbar } from "components/toolbar";
 import Panel from "components/common/Panel";
 // import { ItemDirective, ItemsDirective, ToolbarComponent } from '@syncfusion/ej2-react-navigations';
@@ -10,21 +8,40 @@ import './App.css';
 function App() {
 
   const [form, setValues] = useState({
-    number: '',
-    // : ''
+    chart: '',
+    data: '',
+    type: ''
   });
 
   const updateField = e => {
+    const buttonGroup = e.target.closest('span');
+    const button = e.target.closest('button');
+    Array.from(buttonGroup.children).map((obj, i)=>{
+      obj.classList.remove("chart-active");
+    });
+    button.classList.add("chart-active");
+    /**
+     * rule 
+     * 1. list 선택시 ct 선택안됨
+     * 2. bar 선택시 
+     * 
+     */
+
     setValues({
       ...form,
-      [e.target.name]: e.target.value
+      [buttonGroup.dataset.chartButtonGroup]: button.name
     });
-    console.log(e.target.name);
+    
   };
 
   return (
     <div className="App">
-    <Toolbar handleClick={updateField}/>
+      <div>
+        <Toolbar handleClick={updateField}/>
+      </div>
+      <div>
+        {`[chart] : ${form.chart}  , [data] : ${form.data}  , [type] : ${form.type}`}
+      </div>
     </div>
   );
 }
