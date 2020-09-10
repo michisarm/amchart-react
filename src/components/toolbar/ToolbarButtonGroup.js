@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import { mapIndexed } from "lib/utils";
 import { TOOLBAR_ACTION_GROUP_OPTS } from "./constants";
 import ToolbarButton from "./ToolbarButton";
@@ -8,7 +8,7 @@ function ToolbarButtonGroup(props) {
 
   function renderToolbarActions() {
     return mapIndexed((toolbarActionOption, index) => {
-      console.log(toolbarActionOption);
+
       // 조건별 버튼 노출 선택
       return (
         <ToolbarButton

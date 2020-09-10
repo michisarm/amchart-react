@@ -1,5 +1,5 @@
-import React from "react";
-import * as R from "ramda";
+import React, { useEffect } from "react";
+import mapObjIndexed from "ramda/src/mapObjIndexed";
 import { TOOLBAR_ACTION_OPTS } from "./constants";
 import { groupBy } from "lib/utils";
 import ToolbarButtonGroup from "./ToolbarButtonGroup";
@@ -15,7 +15,7 @@ const Toolbar = ({ handleClick }) => {
     const groupedToolbarActionOptions = groupBy(allowedToolbarActions, "buttonGroup");
     let groupedToolbarActionHTML = [];
 
-    R.mapObjIndexed((toolbarActionOptions, key) => {
+    mapObjIndexed((toolbarActionOptions, key) => {
 
       
       // if(R.equals(key, SPACER_BEFORE_TOOL_GROUP)) {

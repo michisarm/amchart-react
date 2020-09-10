@@ -1,9 +1,11 @@
-import * as R from "ramda";
+import addIndex from "ramda/src/addIndex";
+import map from "ramda/src/map";
+import keys from "ramda/src/keys";
 
-export const mapIndexed = R.addIndex(R.map);
+export const mapIndexed = addIndex(map);
 
 export const groupBy = (collection, prop) => {
-  return R.keys(collection).reduce((groups, item) => {
+  return keys(collection).reduce((groups, item) => {
     const groupKey = collection[item][prop];
     groups[groupKey] = groups[groupKey] || []
     groups[groupKey].push(collection[item])

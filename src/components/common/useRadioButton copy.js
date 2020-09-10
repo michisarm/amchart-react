@@ -2,29 +2,29 @@ import React, { useState, useEffect, useContext, createContext } from 'react'
 
 const useRadioButton = () => {
   
-  const RadioValue = ({name, defaultValue}) => {
-    const [value, setState] = useState(null);
+  const RadioValue = ({name, value, callback}) => {
+    // const [value, setState] = useState(null);
+    // useEffect(() => callback({name, value}), [value]);
   
     const handleChange = (event) => {
-      setState(event.target.value);
+      // setState(event.target.value);
+      // callback({name, value: event.target.value});
+      
+      callback({name: name, value : event.target.value});
     };
     const inputProps = {
       onChange: handleChange,
       name,
       value,
-      defaultValue,
       type: "radio"
     }; 
-    return [value, inputProps];
+    return [inputProps];
   }
   
   const RadioGroupContext = createContext();
-  const RadioGroup = ({ children, name, defaultValue, callback }) => {
+  const RadioGroup = ({ children, name, value, callback }) => {
 
-    const [value, inputProps] = RadioValue({name, defaultValue});
-    useEffect(()=>{
-      callback({name, value});
-    },[value]);
+    const [inputProps] = RadioValue({name, value, callback});
     return (
         <RadioGroupContext.Provider value={inputProps}>
             {children}
@@ -34,10 +34,10 @@ const useRadioButton = () => {
   
   const RadioButton = (props) => {
     const context = useContext(RadioGroupContext);
-    
+    console.log(context.value === props.value)
     return (
         <label>
-            <input {...props} {...context} checked={context.value !== context.defaultValue ? 'checked': ''}/>
+            <input {...props} type={context.type} onChange={context.onChange} checked={ context.value === props.value ? 'checked' : ''}/>
             {props.label}
         </label>
     );
