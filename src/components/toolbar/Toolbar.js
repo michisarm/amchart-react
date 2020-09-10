@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import mapObjIndexed from "ramda/src/mapObjIndexed";
 import { TOOLBAR_ACTION_OPTS } from "./constants";
 import { groupBy } from "lib/utils";
 import ToolbarButtonGroup from "./ToolbarButtonGroup";
 
-const Toolbar = ({ handleClick }) => {
+const Toolbar = ({ state, handleClick }) => {
 
   let allowedToolbarActions = TOOLBAR_ACTION_OPTS;
 
@@ -28,6 +28,7 @@ const Toolbar = ({ handleClick }) => {
           key={key}
           toolbarActionOptions={toolbarActionOptions}
           groupName={key}
+          state={state}
           handleClick={handleClick}
         />
       );

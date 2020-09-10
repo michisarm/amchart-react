@@ -22,9 +22,7 @@ const useRadioButton = () => {
   const RadioGroup = ({ children, name, defaultValue, callback }) => {
 
     const [value, inputProps] = RadioValue({name, defaultValue});
-    useEffect(()=>{
-      callback({name, value});
-    },[value]);
+    
     return (
         <RadioGroupContext.Provider value={inputProps}>
             {children}
@@ -37,7 +35,7 @@ const useRadioButton = () => {
     
     return (
         <label>
-            <input {...props} {...context} checked={context.value !== context.defaultValue ? 'checked': ''}/>
+            <input {...props} {...context} defaultChecked={context.value !== context.defaultValue}/>
             {props.label}
         </label>
     );
