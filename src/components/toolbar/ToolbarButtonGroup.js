@@ -5,16 +5,19 @@ import ToolbarButton from "./ToolbarButton";
 
 function ToolbarButtonGroup(props) {
   const { groupName, toolbarActionOptions, state, handleClick } = props;
-  // follow up조건 
-  // 1. candle차트는 무조건 Ct값 이어야함
-  if(groupName === "data" && state.chart ==="candle" && state.data !== "ct"){
-    console.log(props)
-    // debugger;
-  }
-  // 조건 end
+
+  const visibledToolbar = toolbarActionOptions.map((obj, i)=>{
+    // default 제어
+    if(obj.id === state[groupName]){
+      obj.selected = true;
+    }else{
+      obj.selected = false;
+    }
+    return obj;
+  });
+
   function renderToolbarActions() {
     return mapIndexed((toolbarActionOption, index) => {
-
       // 조건별 버튼 노출 선택
       return (
         <ToolbarButton
@@ -23,7 +26,7 @@ function ToolbarButtonGroup(props) {
           {...toolbarActionOption}
         />
       )
-    })(toolbarActionOptions);
+    })(visibledToolbar);
   }
 
   return (

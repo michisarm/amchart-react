@@ -1,12 +1,12 @@
 import React from 'react'
 
 function ToolbarButton(props) {
-  const { type, classNames, data, id, child, defaultSelect, handleClick } = props;
+  const { type, classNames, data, id, child, selected, handleClick } = props;
   return (
     <button 
       type={type}
       data-chart-attribute={data.chartAttribute}
-      className={defaultSelect ? classNames+" chart-active": classNames }
+      className={selected ? classNames+" chart-active": classNames}
       title={id}
       name={id}
       onClick={handleClick}

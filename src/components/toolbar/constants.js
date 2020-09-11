@@ -7,6 +7,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("LIST_SVG"),
     classNames: "chart-button",
     buttonGroup: "chart",
+    selected: false,
     data: {
       chartAttribute: ""
     }
@@ -17,7 +18,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("BAR_SVG"),
     classNames: "chart-button",
     buttonGroup: "chart",
-    defaultSelect: true,
+    selected: true,
     data: {
       chartAttribute: ""
     }
@@ -28,6 +29,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("LINE_SVG"),
     classNames: "chart-button",
     buttonGroup: "chart",
+    selected: false,
     data: {
       chartAttribute: ""
     }
@@ -38,6 +40,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("CANDLE_SVG"),
     classNames: "chart-button",
     buttonGroup: "chart",
+    selected: false,
     data: {
       chartAttribute: ""
     }
@@ -48,7 +51,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("NUM"),
     classNames: "chart-button",
     buttonGroup: "data",
-    defaultSelect: true,
+    selected: true,
     data: {
       chartAttribute: ""
     }
@@ -59,6 +62,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("%"),
     classNames: "chart-button",
     buttonGroup: "data",
+    selected: false,
     data: {
       chartAttribute: ""
     }
@@ -69,6 +73,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("Ct"),
     classNames: "chart-button",
     buttonGroup: "data",
+    selected: false,
     data: {
       chartAttribute: ""
     }
@@ -79,7 +84,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("All"),
     classNames: "chart-button",
     buttonGroup: "type",
-    defaultSelect: true,
+    selected: true,
     data: {
       chartAttribute: ""
     }
@@ -90,6 +95,7 @@ export const TOOLBAR_ACTION_OPTS = {
     child: IconHandler("EACH_SVG"),
     classNames: "chart-button",
     buttonGroup: "type",
+    selected: false,
     data: {
       chartAttribute: ""
     }

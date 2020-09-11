@@ -16,29 +16,36 @@ function App() {
     type: 'all',
   });
 
+  //
   const updateToolbar = useCallback(e=>{
     const buttonGroup = e.target.closest('span');
     const button = e.target.closest('button');
-    Array.from(buttonGroup.children).map((obj, i)=>{
-      return obj.classList.remove("chart-active");
-    });
-    button.classList.add("chart-active");
+    const groupName = buttonGroup.dataset.chartButtonGroup;
+    const value = button.name;
+    let toolbarObj = {
+      [groupName]: value
+    }
 
-    const group = buttonGroup.dataset.chartButtonGroup;
-    const name = button.name;
-    console.log(group);
-    console.log(name);
-    /**
-     * rule 
-     * 1. list 선택시 ct 선택안됨
-     * 2. bar 선택시 
-     * 
-     */
-    // useEffect(()=>{
-      setToolbar({
-        ...toolbar,
-        [buttonGroup.dataset.chartButtonGroup]: button.name
-      });
+    // customize follow up condition
+    if(groupName === 'chart'){ 
+      if(value === 'candle' && toolbar.data !== 'ct'){ // 1. chart:candle -> data:Ct
+        toolbarObj['data'] = 'ct';
+      }else if((value === 'bar' || value === 'line') && toolbar.data === 'ct'){ // 2. chart:bar or line -> data:Ct
+        toolbarObj['data'] = 'number';
+      }
+    } else if(groupName === 'data'){
+      if(value !== 'ct' && toolbar.chart === 'candle'){ // 3. data:num or % -> !chart:candle
+        toolbarObj['chart'] = 'bar';  
+      }else if(value === 'ct' && toolbar.chart !== 'candle'){ // 4. data:ct -> !chart:candle
+        toolbarObj['chart'] = 'candle';
+      }
+    }
+
+    // setState
+    setToolbar({
+      ...toolbar,
+      ...toolbarObj
+    });
   },[toolbar]);
 
   const [radio, setRadio] = useState({
