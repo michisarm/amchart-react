@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Toolbar } from "components/toolbar";
 import isEmpty from "ramda/src/isEmpty";
 // import { useRadioButton } from "components/common"
-import { Tooltip } from '@syncfusion/ej2-popups';
-import { ItemDirective, ItemsDirective, ToolbarComponent } from '@syncfusion/ej2-react-navigations';
+// import { ItemDirective, ItemsDirective, ToolbarComponent } from '@syncfusion/ej2-react-navigations';
 
 import './App.css';
 
@@ -86,14 +85,6 @@ function App() {
     }
   }, [menu]);
   
-
-  useEffect(()=>{
-    let tooltip = new Tooltip({
-      target: '#toolbar [title]',
-    });
-    tooltip.appendTo('#Tooltip');
-  },[]);
-  
   return (
     <div className="App">
       <div>
@@ -134,21 +125,7 @@ function App() {
         }
       </div>
       <div>
-        <Toolbar state={toolbar} menu={menu} handleClick={updateToolbar}/>
-        {/* <ToolbarComponent id='toolbar'>
-        <ItemsDirective>
-          <ItemDirective text="Cut" tooltipText="hello"/>
-          <ItemDirective text="Copy" tooltipText="hello"/>
-          <ItemDirective text="Paste" tooltipText="hello"/>
-          <ItemDirective type="Separator" tooltipText="hello"/>
-          <ItemDirective text="Bold" tooltipText="hello"/>
-          <ItemDirective text="Italic" tooltipText="hello"/>
-          <ItemDirective text="Underline" tooltipText="hello"/>
-        </ItemsDirective>
-      </ToolbarComponent>       */}
-      </div>
-      <div>
-      
+      <Toolbar state={toolbar} menu={menu} handleClick={updateToolbar}/>
       </div>
     </div>
   );
