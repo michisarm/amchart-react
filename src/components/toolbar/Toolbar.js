@@ -4,7 +4,7 @@ import { TOOLBAR_ACTION_OPTS } from "./constants";
 import { groupBy } from "lib/utils";
 import ToolbarButtonGroup from "./ToolbarButtonGroup";
 
-const Toolbar = ({ state, handleClick }) => {
+const Toolbar = ({ state, menu, handleClick }) => {
 
   let allowedToolbarActions = TOOLBAR_ACTION_OPTS;
 
@@ -17,7 +17,6 @@ const Toolbar = ({ state, handleClick }) => {
 
     mapObjIndexed((toolbarActionOptions, key) => {
 
-      
       // if(R.equals(key, SPACER_BEFORE_TOOL_GROUP)) {
       //   const dateTimestamp = new Date().getTime();
       //   groupedToolbarActionHTML.push(<ToolbarSpacer key={dateTimestamp}/>);
@@ -29,6 +28,7 @@ const Toolbar = ({ state, handleClick }) => {
           toolbarActionOptions={toolbarActionOptions}
           groupName={key}
           state={state}
+          menu={menu}
           handleClick={handleClick}
         />
       );
