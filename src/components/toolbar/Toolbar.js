@@ -5,7 +5,7 @@ import { groupBy } from "lib/utils";
 import ToolbarButtonGroup from "./ToolbarButtonGroup";
 import { StyledToolbar } from './Toolbar.styled';
 
-const Toolbar = ({ state, menu, handleClick }) => {
+const Toolbar = ({ toolbar, menu, handleClick }) => {
 
   let allowedToolbarActions = TOOLBAR_ACTION_OPTS;
 
@@ -28,7 +28,7 @@ const Toolbar = ({ state, menu, handleClick }) => {
           key={key}
           toolbarActionOptions={toolbarActionOptions}
           groupName={key}
-          state={state}
+          toolbar={toolbar}
           menu={menu}
           handleClick={handleClick}
         />

@@ -10,9 +10,6 @@ export const defaultProps = {
 };
 
 const Panel = ({
-  id,
-  title,
-  tooltip,
   children,
   className,
   error,

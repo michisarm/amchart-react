@@ -7,44 +7,69 @@ import { getSamplePanelData } from 'lib/api';
 const header = {
   x: {
     key: "category",
-    title: "xx",
+    title: "xyz",
   },
   y: {
     series: [
       {
-        key: "valueX",
+        key: "x",
         name: "X",
       },
       {
-        key: "valueY",
+        key: "y",
         name: "Y",
       },
       {
-        key: "valueZ",
+        key: "z",
         name: "Z",
       },
     ],
-    title: ""
+    title: "test"
   }
 }
 
-export default function ChartPanel ({title, refreshTime}) {
-  const [chartData, setChartData] = useState([]);
-  const [isRefresh, setIsRefresh] = useState(true);
+//type 에 맞는 차트 컴포넌트 찾기 - bar, line, candle
+const panelHandler = ({toolbar, menu, data}) => {
+  // 공통 props
+  let commonProps = {
+    
+  }
+  console.log(data)
+  switch (toolbar.chart) {
+    case 'line':
+      return (
+        <LineChart
+          {...commonProps}
+          id="chartPanel"
+          data={data}
+          header={header}
+          showLegend={true}
+          type={'category'}
+          width={'100%'}
+          height={'100%'}
+        />
+      )
+    default:
+      return null;
+  }
+}
 
+export default function ChartPanel ({toolbar, menu}) {
+  const [data, setData] = useState([]);
+  const [isRefresh, setIsRefresh] = useState(true);
+  const [container, setContainer] = useState();
+
+  // 데이터를 
   useEffect(() => {
     //init interval
-    let intervalRefreshTime = null;
+    // let intervalRefreshTime = null;
     //data 함수
+    console.log('refresh')
     const startFn = () => {
       const data = getSamplePanelData();
-      setChartData(data);
+      setData(data);
       setIsRefresh(false); //loading end
-      intervalRefreshTime = setTimeout(() => {
-              setIsRefresh(true); //loading start
-              startFn();
-          }, parseInt(refreshTime));
-    }
+    } 
     // const startFn = () => getSamplePanelData()
     // .then(({data}) => {
     //   setChartData(data);
@@ -61,19 +86,16 @@ export default function ChartPanel ({title, refreshTime}) {
     //최초 실행
     startFn();
     //interval clear
-    return () => clearTimeout(intervalRefreshTime);
-  }, [refreshTime]);
+    // return () => clearTimeout(intervalRefreshTime);
+  }, [toolbar]);
+
+  useEffect(()=>{
+    setContainer(panelHandler({toolbar, menu, data}));
+  },[data]);
+
   return (
-    <Panel title={title} isRefresh={isRefresh}>
-      <LineChart
-        id="chartPanel"
-        data={chartData}
-        header={header}
-        showLegend={true}
-        type={'category'}
-        width={'100%'}
-        height={'100%'}
-      />
+    <Panel isRefresh={isRefresh}>
+      {container}
     </Panel>
   );
 };

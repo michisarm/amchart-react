@@ -5,7 +5,7 @@ import ToolbarButton from "./ToolbarButton";
 import isEmpty from "ramda/src/isEmpty";
 
 function ToolbarButtonGroup(props) {
-  const { groupName, toolbarActionOptions, state, menu, handleClick } = props;
+  const { groupName, toolbarActionOptions, toolbar, menu, handleClick } = props;
 
   const visibledToolbar = toolbarActionOptions.filter(obj =>{
 
@@ -17,14 +17,14 @@ function ToolbarButtonGroup(props) {
     if(obj.id === 'candle' || obj.id === 'ct'){
       if(menu.lnb==='prevalence' && menu.gubun==='product'){ //1. prevalence-product
         ctFlag = false;
-      }else if(menu.lnb==='qc' && menu.gubun==='product' && state.qc==='pc'){ //2. qc-product-pc
+      }else if(menu.lnb==='qc' && menu.gubun==='product' && toolbar.qc==='pc'){ //2. qc-product-pc
         ctFlag = false;
       }
     }
     return flag && ctFlag;
   }).map((obj, i)=>{
     // default 제어
-    if(obj.id === state[groupName]){
+    if(obj.id === toolbar[groupName]){
       obj.selected = true;
     }else{
       obj.selected = false;

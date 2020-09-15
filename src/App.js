@@ -125,10 +125,12 @@ function App() {
           </label>
         }
       </div>
-      <div>
-      <Toolbar state={toolbar} menu={menu} handleClick={updateToolbar}/>
+      <div style={{height: "30px"}}>
+      <Toolbar toolbar={toolbar} menu={menu} handleClick={updateToolbar}/>
       </div>
-      <ChartPanel/>
+      <div style={{height: "500px"}}>
+      <ChartPanel toolbar={toolbar} menu={menu}/>
+      </div>
     </div>
   );
 }
