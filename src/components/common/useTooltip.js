@@ -42,7 +42,6 @@ const Tooltip = (props) => {
 
 const useTooltip = message => {
   const ref = useRef(null);
-  const state = { setIsShow: null };
   const shift = 4;
   let container = null;
 
@@ -69,6 +68,10 @@ const useTooltip = message => {
     return () => {
       if (container) {
         container.remove();
+      }
+      if (current) {
+        current.removeEventListener("mouseover", () => hoverHandler(current, true));
+        current.removeEventListener("mouseout", () => hoverHandler(current, false));
       }
     };
   }, []);

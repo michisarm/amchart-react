@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import { StyledPanel } from './Panel.styled';
 
 export const defaultProps = {
   title: undefined,
@@ -21,7 +22,7 @@ const Panel = ({
   ...others
 }) => {
   return (
-    <>
+    <StyledPanel>
         {isLoading ? (
             <div>loading...</div>
         ) : error ? (
@@ -31,7 +32,7 @@ const Panel = ({
         ) : (
             children
         )}
-    </>
+    </StyledPanel>
   );
 };
 export default Panel;

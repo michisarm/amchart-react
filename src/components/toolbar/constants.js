@@ -10,6 +10,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["qc"],
     gubunGroup:["product"],
     selected: true,
+    tooltip: "pc tooltip",
     data: {
       chartAttribute: ""
     }
@@ -23,6 +24,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["qc"],
     gubunGroup:["product"],
     selected: true,
+    tooltip: "ic tooltip",
     data: {
       chartAttribute: ""
     }
@@ -36,6 +38,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: false,
+    tooltip: "list tooltip",
     data: {
       chartAttribute: ""
     }
@@ -49,6 +52,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: true,
+    tooltip: "bar tooltip",
     data: {
       chartAttribute: ""
     }
@@ -62,6 +66,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: false,
+    tooltip: "line tooltip",
     data: {
       chartAttribute: ""
     }
@@ -75,6 +80,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: false,
+    tooltip: "candle tooltip",
     data: {
       chartAttribute: ""
     }
@@ -88,6 +94,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: true,
+    tooltip: "number tooltip",
     data: {
       chartAttribute: ""
     }
@@ -101,6 +108,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: false,
+    tooltip: "percent tooltip",
     data: {
       chartAttribute: ""
     }
@@ -114,6 +122,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence", "coinfection", "qc"],
     gubunGroup:["product","pathogen"],
     selected: false,
+    tooltip: "ct tooltip",
     data: {
       chartAttribute: ""
     }
@@ -127,6 +136,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence"],
     gubunGroup:["product","pathogen"],
     selected: true,
+    tooltip: "all tooltip",
     data: {
       chartAttribute: ""
     }
@@ -140,6 +150,7 @@ export const TOOLBAR_ACTION_OPTS = {
     lnbGroup:["prevalence"],
     gubunGroup:["product","pathogen"],
     selected: false,
+    tooltip: "each tooltip",
     data: {
       chartAttribute: ""
     }

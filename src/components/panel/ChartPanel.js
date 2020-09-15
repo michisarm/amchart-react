@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { LineChart } from 'components/amchart'
-import { Panel } from 'components/panel';
+import Panel from 'components/panel/Panel';
 import { getSamplePanelData } from 'lib/api';
 
 
@@ -32,23 +32,32 @@ export default function ChartPanel ({title, refreshTime}) {
   const [chartData, setChartData] = useState([]);
   const [isRefresh, setIsRefresh] = useState(true);
 
-  useEffect(() => {    
+  useEffect(() => {
     //init interval
     let intervalRefreshTime = null;
     //data 함수
-    const startFn = () => getSamplePanelData()
-    .then(({data}) => {
-    setChartData(data);
-    setIsRefresh(false); //loading end
-    //start interval
-    intervalRefreshTime = setTimeout(() => {
-        setIsRefresh(true); //loading start
-        startFn();
-    }, parseInt(refreshTime));
-    })
-    .catch(e => {
-    console.error(e);
-    });
+    const startFn = () => {
+      const data = getSamplePanelData();
+      setChartData(data);
+      setIsRefresh(false); //loading end
+      intervalRefreshTime = setTimeout(() => {
+              setIsRefresh(true); //loading start
+              startFn();
+          }, parseInt(refreshTime));
+    }
+    // const startFn = () => getSamplePanelData()
+    // .then(({data}) => {
+    //   setChartData(data);
+    //   setIsRefresh(false); //loading end
+    //   //start interval
+    //   intervalRefreshTime = setTimeout(() => {
+    //       setIsRefresh(true); //loading start
+    //       startFn();
+    //   }, parseInt(refreshTime));
+    // })
+    // .catch(e => {
+    //   console.error(e);
+    // });
     //최초 실행
     startFn();
     //interval clear

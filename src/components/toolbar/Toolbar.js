@@ -3,6 +3,7 @@ import mapObjIndexed from "ramda/src/mapObjIndexed";
 import { TOOLBAR_ACTION_OPTS } from "./constants";
 import { groupBy } from "lib/utils";
 import ToolbarButtonGroup from "./ToolbarButtonGroup";
+import { StyledToolbar } from './Toolbar.styled';
 
 const Toolbar = ({ state, menu, handleClick }) => {
 
@@ -39,9 +40,9 @@ const Toolbar = ({ state, menu, handleClick }) => {
 
   return (
     <>
-      <div id="chart-toolbar" className="chart-button-row">
+      <StyledToolbar className="chart-button-row">
         {renderGroupedToolbarActions()}
-      </div>
+      </StyledToolbar>
     </>
   );
 };

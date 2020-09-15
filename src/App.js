@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Toolbar } from "components/toolbar";
+import { ChartPanel } from "components/panel";
 import isEmpty from "ramda/src/isEmpty";
 // import { useRadioButton } from "components/common"
 // import { ItemDirective, ItemsDirective, ToolbarComponent } from '@syncfusion/ej2-react-navigations';
@@ -127,6 +128,7 @@ function App() {
       <div>
       <Toolbar state={toolbar} menu={menu} handleClick={updateToolbar}/>
       </div>
+      <ChartPanel/>
     </div>
   );
 }
