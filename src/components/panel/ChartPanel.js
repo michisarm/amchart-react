@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { LineChart } from 'components/amchart'
+import { BarChart, LineChart, CandleChart } from 'components/amchart'
 import Panel from 'components/panel/Panel';
-import { getSamplePanelData } from 'lib/api';
+import { getSamplePanelData, getSampleCandleData } from 'lib/api';
 
 
 const header = {
@@ -34,8 +34,20 @@ const panelHandler = ({toolbar, menu, data}) => {
   let commonProps = {
     
   }
-  console.log(data)
   switch (toolbar.chart) {
+    case 'bar':
+      return (
+        <BarChart
+          {...commonProps}
+          id="chartPanel"
+          data={data}
+          header={header}
+          showLegend={true}
+          type={'category'}
+          width={'100%'}
+          height={'100%'}
+        />
+      )
     case 'line':
       return (
         <LineChart
@@ -49,6 +61,31 @@ const panelHandler = ({toolbar, menu, data}) => {
           height={'100%'}
         />
       )
+    case 'candle':
+      return (
+        <CandleChart
+          {...commonProps}
+          id="chartPanel"
+          data={data}
+          header={header}
+          showLegend={false}
+          width={'100%'}
+          height={'100%'}
+        />
+      )
+    default:
+      return null;
+  }
+}
+
+const panelDataHandler = ({toolbar}) => {
+  switch (toolbar.chart) {
+    case 'bar':
+      return getSamplePanelData();
+    case 'line':
+      return getSamplePanelData();
+    case 'candle':
+      return getSampleCandleData();
     default:
       return null;
   }
@@ -66,7 +103,7 @@ export default function ChartPanel ({toolbar, menu}) {
     //data 함수
     console.log('refresh')
     const startFn = () => {
-      const data = getSamplePanelData();
+      const data = panelDataHandler({toolbar});
       setData(data);
       setIsRefresh(false); //loading end
     } 
